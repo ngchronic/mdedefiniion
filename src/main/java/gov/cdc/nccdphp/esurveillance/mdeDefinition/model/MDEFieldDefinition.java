@@ -20,6 +20,7 @@ public class MDEFieldDefinition {
     private boolean leadingZeroes;
     private String format;
     private boolean staticField;
+    private String justification;
     //TODO: Future Version:
     //private List<PossibleAnswers> possibleAnswers;
 }

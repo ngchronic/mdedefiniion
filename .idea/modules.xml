@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/spring.bootstrapTemplate.iml" filepath="$PROJECT_DIR$/spring.bootstrapTemplate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MDEDefinition.iml" filepath="$PROJECT_DIR$/MDEDefinition.iml" />
     </modules>
   </component>
 </project>

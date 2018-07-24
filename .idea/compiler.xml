@@ -7,11 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring.bootstrapTemplate" />
+        <module name="MDEDefinition" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="spring.bootstrapTemplate" target="1.8" />
+      <module name="MDEDefinition" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

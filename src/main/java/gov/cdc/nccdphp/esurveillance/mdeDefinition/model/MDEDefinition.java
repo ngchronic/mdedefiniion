@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Created - 7/20/18
@@ -23,13 +25,19 @@ public class MDEDefinition extends AuditFields {
     private String name;
     private String code;
     private String version;
-    private List<MDEFieldDefinition> fields;
+    private Map<String, MDEFieldDefinition> fields;
 
     public MDEDefinition(String name, String code, String version) {
         super();
         this.name = name;
         this.code = code;
         this.version = version;
+    }
 
+    public void addField(MDEFieldDefinition field) {
+        if (fields == null) {
+            fields = new HashMap<>();
+        }
+        fields.put(field.getItemNumber(), field);
     }
 }
