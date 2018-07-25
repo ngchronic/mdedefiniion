@@ -1,13 +1,13 @@
 server:
   servlet:
-    context-path: /serviceContext
+    context-path: /mdeDefinition
   port: 10000
   apiContext:
   versionContext: v
 
 spring:
   application:
-    name: <SERVICE>-Service
+    name: MDEDefinition-Service
 
   profiles:
     active: ${SPRING_PROFILE}

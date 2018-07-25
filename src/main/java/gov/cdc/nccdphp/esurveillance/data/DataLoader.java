@@ -8,8 +8,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Scanner;
 
 /**
@@ -42,10 +41,7 @@ public class DataLoader {
 
 
     public  void loadData(String filename, String mmgName, String mmgCode, String mmgVersion) {
-//        Map<String, AnswerChoice> loadedOids = new HashMap<>();
-//        Map<String, Question> loadedQuestions = new HashMap<>();
-
-        File file = new File(getClass().getClassLoader().getResource(filename).getFile());
+        InputStream file = getClass().getClassLoader().getResourceAsStream(filename);
         try (Scanner scanner = new Scanner(file)) {
             scanner.nextLine(); //skip first line
             //Create MMG ->
@@ -72,9 +68,6 @@ public class DataLoader {
             }
             service.save(mmg);
             log.info("###### Data loaded!!");
-
-        } catch (FileNotFoundException e) {
-            log.error("File not found: " + e.getMessage());
         }
     }
 }

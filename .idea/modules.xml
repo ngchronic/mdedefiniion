@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MDEDefinition.iml" filepath="$PROJECT_DIR$/MDEDefinition.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MDEDefinitions.iml" filepath="$PROJECT_DIR$/MDEDefinitions.iml" />
     </modules>
   </component>
 </project>

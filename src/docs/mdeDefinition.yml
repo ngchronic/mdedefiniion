@@ -43,6 +43,17 @@ paths:
         '200':
           $ref: '#/components/schemas/MDEDefinition'
 
+  /mde/$parse:
+    post:
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: string
+          description: The raw content of a file to be converted into MDE model.
+
+      summary: This method accepts the Data as JSON and translates it into content ready to be persisted
+
          
 components:
   schemas:

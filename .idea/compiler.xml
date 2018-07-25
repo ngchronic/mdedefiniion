@@ -8,10 +8,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="MDEDefinition" />
+        <module name="MDEDefinitions" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="MDEDefinition" target="1.8" />
+      <module name="MDEDefinitions" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -3,9 +3,10 @@ package gov.cdc.nccdphp.esurveillance.mdeDefinition.controller;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import gov.cdc.nccdphp.esurveillance.View;
-import gov.cdc.nccdphp.esurveillance.rest.ApiVersion;
+import gov.cdc.nccdphp.esurveillance.data.DataLoader;
 import gov.cdc.nccdphp.esurveillance.mdeDefinition.About;
 import gov.cdc.nccdphp.esurveillance.mdeDefinition.EipServiceConfig;
+import gov.cdc.nccdphp.esurveillance.rest.ApiVersion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,8 @@ import java.time.format.DateTimeFormatter;
 @RequestMapping("/info/")
 @ApiVersion({1})
 public class InfoServiceController {
+    @Autowired
+    private DataLoader dataLoader;
     @Autowired
     private About about;
 
@@ -51,6 +54,12 @@ public class InfoServiceController {
     @GetMapping(value = "/config", produces = "application/json")
     public EipServiceConfig getConfig() {
         return config;
+    }
+
+    @GetMapping(value = "/loadData")
+    public String loadData() {
+        dataLoader.loadData("WW_MDE903.csv", "Wise Woman MDE v9.0.3", "WW_MDE", "9.0.3");
+        return "WW_MDE903 Sucessfully Loaded";
     }
 
 }
