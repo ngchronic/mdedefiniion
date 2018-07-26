@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>gov.cdc.nccdphp.esurveillance</groupId>
-	<artifactId>MDEDefinitions</artifactId>
+	<artifactId>mdedefinitions</artifactId>
 	<version>0.0.1-1</version>
 	<packaging>jar</packaging>
 
@@ -146,9 +146,9 @@
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
-				<version>0.4.11</version>
+				<version>1.1.1</version>
 				<configuration>
-					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+					<imageName>esurveillance/mdedefinition</imageName>
 					<dockerDirectory>.</dockerDirectory>
 					<resources>
 						<resource>
