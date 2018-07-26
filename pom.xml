@@ -148,7 +148,7 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>1.1.1</version>
 				<configuration>
-					<imageName>esurveillance/mdedefinition</imageName>
+					<imageName>esurveillance/mdedefinitions</imageName>
 					<dockerDirectory>.</dockerDirectory>
 					<resources>
 						<resource>
@@ -158,6 +158,36 @@
 						</resource>
 					</resources>
 				</configuration>
+				<executions>
+					<execution>
+						<id>build-image</id>
+						<phase>package</phase>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+					<!--<execution>-->
+						<!--<id>tag-image</id>-->
+						<!--<phase>package</phase>-->
+						<!--<goals>-->
+							<!--<goal>tag</goal>-->
+						<!--</goals>-->
+						<!--<configuration>-->
+							<!--<image>my-image:${project.version}</image>-->
+							<!--<newName>registry.example.com/my-image:${project.version}</newName>-->
+						<!--</configuration>-->
+					<!--</execution>-->
+					<!--<execution>-->
+						<!--<id>push-image</id>-->
+						<!--<phase>deploy</phase>-->
+						<!--<goals>-->
+							<!--<goal>push</goal>-->
+						<!--</goals>-->
+						<!--<configuration>-->
+							<!--<imageName>registry.example.com/my-image:${project.version}</imageName>-->
+						<!--</configuration>-->
+					<!--</execution>-->
+				</executions>
 			</plugin>
 			<!-- Adds the version into Manifest file -->
 			<plugin>
