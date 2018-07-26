@@ -1,7 +1,10 @@
 package gov.cdc.nccdphp.esurveillance.mdeDefinition.controller;
 
+import gov.cdc.nccdphp.esurveillance.exceptions.InvalidDataException;
 import gov.cdc.nccdphp.esurveillance.mdeDefinition.model.MDEDefinition;
-import gov.cdc.nccdphp.esurveillance.mdeDefinition.repository.MDEDefinitionMongoRepo;
+import gov.cdc.nccdphp.esurveillance.mdeDefinition.model.MDEFile;
+import gov.cdc.nccdphp.esurveillance.mdeDefinition.service.MDEDefinitionService;
+import gov.cdc.nccdphp.esurveillance.mdeDefinition.service.MDETransformer;
 import gov.cdc.nccdphp.esurveillance.rest.ApiVersion;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -21,15 +24,28 @@ public class MDEDefinitionController {
     Log log = LogFactory.getLog(MDEDefinitionController.class);
 
     @Autowired
-    private MDEDefinitionMongoRepo repo;
+    private MDEDefinitionService service;
+
+    @Autowired
+    private MDETransformer transformer;
 
     @GetMapping("/{mdeCode}")
     public MDEDefinition getMDE(@PathVariable String mdeCode, @RequestParam Optional<String> version) {
         log.info("AUDIT - retrieving definition for " + mdeCode);
 
         if (version.isPresent())
-            return repo.findByCodeAndVersion(mdeCode, version.get());
+            return service.getMDE(mdeCode, version.get());
         else
-            return repo.findByCodeAndVersion(mdeCode, "9.0.0");
+            return service.getMDE(mdeCode, "LATEST");
+    }
+
+    @PostMapping("parse")
+    public MDEFile parseContent(@RequestParam String defCode, @RequestParam String version,  @RequestBody String content) throws InvalidDataException {
+        return transformer.parseContent(defCode, version, content);
+    }
+
+    @PostMapping("generate")
+    public String generateFile(@RequestParam String defCode, @RequestParam String version,@RequestBody MDEFile file) throws InvalidDataException {
+        return transformer.generateContent(defCode, version, file);
     }
 }

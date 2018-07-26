@@ -43,7 +43,7 @@ paths:
         '200':
           $ref: '#/components/schemas/MDEDefinition'
 
-  /mde/$parse:
+  /mde/parse:
     post:
       parameters:
         - in: body
@@ -54,7 +54,21 @@ paths:
 
       summary: This method accepts the Data as JSON and translates it into content ready to be persisted
 
-         
+  /mde/generate:
+    post:
+      parameters:
+        - in: body
+          required: true
+          schema:
+            $ref: '#/components/schemas/MDEFile'
+          description: The content to be translated into the File format to be persisted.
+      summary: This method accepts a MDEFile JSON object and formats it for data persistence following the MDE Rules.
+      responses:
+        '200':
+          schema:
+            type: string
+          description: The file format representation of the content passed into the service.
+
 components:
   schemas:
     MDEDefinition:
@@ -165,6 +179,34 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/newMessage"
+
+      MDEFile:
+          type: object
+          properties:
+            name:
+              type: string
+            rows:
+              type: array
+              items:
+                $ref: '#/components/schemas/Row'
+        Row:
+          type: object
+          properties:
+            rowNumber:
+              type: integer
+            fields:
+              type: array
+              items:
+                $ref: '#/components/schemas/Field'
+        Field:
+          type: object
+          properties:
+            fieldNumber:
+              type: integer
+            values:
+              type: array
+              items:
+                type: string
  
     Error:
       type: object
