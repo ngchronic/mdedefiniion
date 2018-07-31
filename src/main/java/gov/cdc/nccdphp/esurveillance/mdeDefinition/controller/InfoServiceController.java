@@ -58,7 +58,9 @@ public class InfoServiceController {
 
     @GetMapping(value = "/loadData")
     public String loadData() {
-        dataLoader.loadData("WW_MDE903.csv", "Wise Woman MDE v9.0.3", "WW_MDE", "9.0.3");
+        dataLoader.loadDataSets("ValueSets.csv");
+        dataLoader.loadFieldDefinitions("WW_MDE903.csv", "Wise Woman MDE v9.0.3", "WW_MDE", "9.0.3");
+
         return "WW_MDE903 Sucessfully Loaded";
     }
 

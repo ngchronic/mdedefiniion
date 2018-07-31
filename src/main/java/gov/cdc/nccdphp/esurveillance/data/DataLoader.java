@@ -2,6 +2,8 @@ package gov.cdc.nccdphp.esurveillance.data;
 
 import gov.cdc.nccdphp.esurveillance.mdeDefinition.model.MDEDefinition;
 import gov.cdc.nccdphp.esurveillance.mdeDefinition.model.MDEFieldDefinition;
+import gov.cdc.nccdphp.esurveillance.mdeDefinition.model.ValueSet;
+import gov.cdc.nccdphp.esurveillance.mdeDefinition.repository.ValueSetMongoRepo;
 import gov.cdc.nccdphp.esurveillance.mdeDefinition.service.MDEDefinitionService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -19,8 +21,12 @@ import java.util.Scanner;
 @Component
 public class DataLoader {
 
+    private static final int VS_NAME = 0;
     @Autowired
     MDEDefinitionService service;
+    @Autowired
+    ValueSetMongoRepo valueSetRepo;
+
     private Log log = LogFactory.getLog(DataLoader.class);
 
     private static final int RECORD_NUMBER = 0;
@@ -37,10 +43,13 @@ public class DataLoader {
     private static final int STATIC_FIELD = 11;
     private static final int FORMAT = 12;
     private static final int JUSTIFICATION = 13;
+    private static final int RANGE_MIN = 14;
+    private static final int RANGE_MAX = 15;
+    private static final int VALUE_SET = 16;
 
 
 
-    public  void loadData(String filename, String mmgName, String mmgCode, String mmgVersion) {
+    public void loadFieldDefinitions(String filename, String mmgName, String mmgCode, String mmgVersion) {
         InputStream file = getClass().getClassLoader().getResourceAsStream(filename);
         try (Scanner scanner = new Scanner(file)) {
             scanner.nextLine(); //skip first line
@@ -54,7 +63,7 @@ public class DataLoader {
                     field.setCategory(values[CATEGORY]);
                     field.setItemNumber(values[ITEM_LABEL]);
                     field.setName(values[VARIABLE_NAME]);
-                    field.setLabel(values[VARIABLE_LABEL]);
+                    field.setLabel(values[VARIABLE_LABEL].replaceAll("\"", ""));
                     field.setRounds(new Integer(values[ROUNDS]));
                     field.setPosition(new Integer(values[FILE_POSITION]));
                     field.setType(values[TYPE]);
@@ -63,11 +72,41 @@ public class DataLoader {
                     field.setStaticField("Y".equals(values[STATIC_FIELD]));
                     field.setFormat(values[FORMAT]);
                     field.setJustification(values[JUSTIFICATION]);
+                    field.setRangeMin(getDoubleValue(values[RANGE_MIN]));
+                    field.setRangeMax(getDoubleValue(values[RANGE_MAX]));
+                    field.setPossibleAnswers(values[VALUE_SET]);
 
                 mmg.addField(field);
             }
             service.save(mmg);
             log.info("###### Data loaded!!");
+        }
+    }
+
+    public void loadDataSets(String filename) {
+        InputStream file = getClass().getClassLoader().getResourceAsStream(filename);
+        try (Scanner scanner = new Scanner(file)) {
+            scanner.nextLine(); //skip first line
+            //Create MMG ->
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] values = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+
+                ValueSet valueSet = new ValueSet(values[VS_NAME]);
+                for (int i = 1; i < values.length; i++) { //Add all possible value Sets:
+                    String[] vs_code = values[i].split("\\^");
+                    valueSet.addChoice(vs_code[0], vs_code[1]);
+                }
+                valueSetRepo.save(valueSet);
+            }
+        }
+    }
+
+    private Double getDoubleValue(String value) {
+        if (value == null || value.trim().length() == 0) {
+            return 0.0;
+        } else {
+            return new Double(value);
         }
     }
 }

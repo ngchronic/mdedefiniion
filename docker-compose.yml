@@ -12,6 +12,13 @@ services:
       - mongodb
     depends_on:
       - mongodb
+      - eureka
+
+  eureka:
+    image: esurveillance/eureka
+    container_name: eureka
+    ports:
+      - 8761:8761
 
   mongodb:
       image: mongo:latest

@@ -83,7 +83,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
     protected ResponseEntity<Object> handleDuplicateException(RuntimeException ex, HttpServletRequest request) {
         
     	logger.error("Error: "+ex.getMessage());
-        ErrorReceipt error = new ErrorReceipt(ERROR_CODES.CONFLICT, ex.getMessage(), 
+        ErrorReceipt error = new ErrorReceipt(ERROR_CODES.CONFLICT, ex.getMessage(),
         		HttpStatus.CONFLICT.value(), request.getRequestURL().toString(), 
         		ex.getClass().getName());
 

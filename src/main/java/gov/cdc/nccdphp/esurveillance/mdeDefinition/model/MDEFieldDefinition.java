@@ -21,6 +21,9 @@ public class MDEFieldDefinition {
     private String format;
     private boolean staticField;
     private String justification;
+
     //TODO: Future Version:
-    //private List<PossibleAnswers> possibleAnswers;
+    private double rangeMin;
+    private double rangeMax;
+    private String possibleAnswers;
 }

@@ -1,5 +1,6 @@
-package gov.cdc.nccdphp.esurveillance.model;
+package gov.cdc.nccdphp.esurveillance.mdeDefinition.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -10,9 +11,8 @@ import lombok.Data;
  *
  */
 @Data
+@AllArgsConstructor
 public class AnswerChoice {
+    private String code;
     private String label;
-    private int code;
-    private int rangeMin;
-    private int rangeMax;
 }
