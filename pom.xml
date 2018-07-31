@@ -143,52 +143,52 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
-			<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<version>1.1.1</version>
-				<configuration>
-					<imageName>esurveillance/mdedefinitions</imageName>
-					<dockerDirectory>.</dockerDirectory>
-					<resources>
-						<resource>
-							<targetPath>/</targetPath>
-							<directory>${project.build.directory}/</directory>
-							<include>${project.build.finalName}.jar</include>
-						</resource>
-					</resources>
-				</configuration>
-				<executions>
-					<execution>
-						<id>build-image</id>
-						<phase>package</phase>
-						<goals>
-							<goal>build</goal>
-						</goals>
-					</execution>
+			<!--<plugin>-->
+				<!--<groupId>com.spotify</groupId>-->
+				<!--<artifactId>docker-maven-plugin</artifactId>-->
+				<!--<version>1.1.1</version>-->
+				<!--<configuration>-->
+					<!--<imageName>esurveillance/mdedefinitions</imageName>-->
+					<!--<dockerDirectory>.</dockerDirectory>-->
+					<!--<resources>-->
+						<!--<resource>-->
+							<!--<targetPath>/</targetPath>-->
+							<!--<directory>${project.build.directory}/</directory>-->
+							<!--<include>${project.build.finalName}.jar</include>-->
+						<!--</resource>-->
+					<!--</resources>-->
+				<!--</configuration>-->
+				<!--<executions>-->
 					<!--<execution>-->
-						<!--<id>tag-image</id>-->
+						<!--<id>build-image</id>-->
 						<!--<phase>package</phase>-->
 						<!--<goals>-->
-							<!--<goal>tag</goal>-->
+							<!--<goal>build</goal>-->
 						<!--</goals>-->
-						<!--<configuration>-->
-							<!--<image>my-image:${project.version}</image>-->
-							<!--<newName>registry.example.com/my-image:${project.version}</newName>-->
-						<!--</configuration>-->
 					<!--</execution>-->
-					<!--<execution>-->
-						<!--<id>push-image</id>-->
-						<!--<phase>deploy</phase>-->
-						<!--<goals>-->
-							<!--<goal>push</goal>-->
-						<!--</goals>-->
-						<!--<configuration>-->
-							<!--<imageName>registry.example.com/my-image:${project.version}</imageName>-->
-						<!--</configuration>-->
-					<!--</execution>-->
-				</executions>
-			</plugin>
+					<!--&lt;!&ndash;<execution>&ndash;&gt;-->
+						<!--&lt;!&ndash;<id>tag-image</id>&ndash;&gt;-->
+						<!--&lt;!&ndash;<phase>package</phase>&ndash;&gt;-->
+						<!--&lt;!&ndash;<goals>&ndash;&gt;-->
+							<!--&lt;!&ndash;<goal>tag</goal>&ndash;&gt;-->
+						<!--&lt;!&ndash;</goals>&ndash;&gt;-->
+						<!--&lt;!&ndash;<configuration>&ndash;&gt;-->
+							<!--&lt;!&ndash;<image>my-image:${project.version}</image>&ndash;&gt;-->
+							<!--&lt;!&ndash;<newName>registry.example.com/my-image:${project.version}</newName>&ndash;&gt;-->
+						<!--&lt;!&ndash;</configuration>&ndash;&gt;-->
+					<!--&lt;!&ndash;</execution>&ndash;&gt;-->
+					<!--&lt;!&ndash;<execution>&ndash;&gt;-->
+						<!--&lt;!&ndash;<id>push-image</id>&ndash;&gt;-->
+						<!--&lt;!&ndash;<phase>deploy</phase>&ndash;&gt;-->
+						<!--&lt;!&ndash;<goals>&ndash;&gt;-->
+							<!--&lt;!&ndash;<goal>push</goal>&ndash;&gt;-->
+						<!--&lt;!&ndash;</goals>&ndash;&gt;-->
+						<!--&lt;!&ndash;<configuration>&ndash;&gt;-->
+							<!--&lt;!&ndash;<imageName>registry.example.com/my-image:${project.version}</imageName>&ndash;&gt;-->
+						<!--&lt;!&ndash;</configuration>&ndash;&gt;-->
+					<!--&lt;!&ndash;</execution>&ndash;&gt;-->
+				<!--</executions>-->
+			<!--</plugin>-->
 			<!-- Adds the version into Manifest file -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
