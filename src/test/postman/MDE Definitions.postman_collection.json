@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"_postman_id": "afb8e01f-94fd-4451-98a3-1a693ecd9aca",
+			"_postman_id": "567c1114-648e-4b11-9dce-06a9e9cc8c5c",
 			"name": "Get WWMDE",
 			"request": {
 				"method": "GET",
@@ -35,7 +35,30 @@
 			"response": []
 		},
 		{
-			"_postman_id": "1d8b2d73-a4cd-448a-948a-4fe88aef522f",
+			"_postman_id": "bb06aba0-f1aa-4907-929e-31b0dc70043b",
+			"name": "Get Value Sets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{SERVER_URL}}:10000/mdeDefinition/v1/mde/valueSet",
+					"host": [
+						"{{SERVER_URL}}"
+					],
+					"port": "10000",
+					"path": [
+						"mdeDefinition",
+						"v1",
+						"mde",
+						"valueSet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "dfc3d142-6352-4d3c-9279-200db1a887ef",
 			"name": "Load data",
 			"request": {
 				"method": "GET",
@@ -58,7 +81,7 @@
 			"response": []
 		},
 		{
-			"_postman_id": "0af87c54-7002-4bef-ae43-008470fa22cb",
+			"_postman_id": "b3235ea7-101a-4849-aef1-7d11cd830932",
 			"name": "Parse Content",
 			"request": {
 				"method": "POST",
