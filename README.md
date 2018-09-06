@@ -12,5 +12,6 @@ If you prefer, you can install maven and java on your local development and buil
 # Running docker
 Steps to run docker containers.
 
+test build.
 
 
