@@ -41,7 +41,7 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://mongodb:27017/mde_definitions
+      uri: mongodb://${MONGO_MDE_HOST}:${MONGO_MDE_PORT}/mde_definitions
 
 
 ---
