@@ -3,32 +3,32 @@ version: '3.1'
 services:
 
   mdedef:
-    #build: .
-    image: esurveillance/mdedefinitions
+    image: esurveillance/mdedefinition
     restart: always
     container_name: mdedefinition
     ports:
       - 10000:10000
-    links:
-      - mongodb
     depends_on:
-      - mongodb
-      - eureka
+      - mongodb_mde
+    networks:
+      - esurv1
+    env_file:
+    - ./.env
 
-  eureka:
-    image: esurveillance/eureka
-    container_name: eureka
-    ports:
-      - 8761:8761
-
-  mongodb:
+  mongodb_mde:
       image: mongo:latest
-      container_name: "mongodb"
+      container_name: "mongodb_mde"
       environment:
-        - MONGO_DATA_DIR=/data/db
+        - MONGO_DATA_DIR=/data/mde_db
         - MONGO_LOG_DIR=/dev/null
       volumes:
-        - ./data/db:/data/db
+        - ./data/mde_db:/data/db
       ports:
-          - 27017:27017
-      command: mongod --smallfiles --logpath=/dev/null # --quiet
+          - 27018:${MONGO_MDE_PORT}
+      command: mongod --port ${MONGO_MDE_PORT} --smallfiles --logpath=/dev/null # --quiet
+      networks:
+        - esurv1
+
+networks:
+  esurv1:
+    driver: bridge

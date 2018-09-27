@@ -17,12 +17,6 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/mde_definitions
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka
-
-
 eip-service-config:
   pageInfo:
     maxPageSize: 100
@@ -47,13 +41,7 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://mongodb:27017/mde_definitions
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka:8761/eureka
-
+      uri: mongodb://${MONGO_MDE_HOST}:${MONGO_MDE_PORT}/mde_definitions
 
 
 ---
