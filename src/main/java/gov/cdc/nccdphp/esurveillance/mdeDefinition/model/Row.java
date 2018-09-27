@@ -14,6 +14,10 @@ public class Row {
     private int rowNumber;
     private List<Field> fields;
 
+    public Row() {
+
+    }
+
     public Row(int rowNumber) {
         this.rowNumber = rowNumber;
     }
