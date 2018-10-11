@@ -9,14 +9,14 @@
 8,Administrative,2c,Type,Type of screening visit,2,29,Numeric,1,2,N,N,N/A,Right,,,VISIT_TYPE,R-If (12a is valid)
 9,Administrative,3a,EncodeID,Unique participant ID number,1,31,Character,15,15,N/A,Y,N/A,Left,,,,Y
 10,Screening & Assessment,3b,ResANSI,ANSI georgraphic code of residence,1,46,Character,5,5,Y,N,N/A,Left,,,,Y
-11,Screening & Assessment,3c,ZIP,ZP cod eof residence,1,51,Character,5,5,Y,N,[0-9]{5}|99999,Left,,,,Y
-12,Screening & Assessment,3d,MYB,Month and year of Birth,1,56,Numeric,6,6,Y,Y,MMCCYY,Right,,,,Y
+11,Screening & Assessment,3c,ZIP,ZIP code of residence,1,51,Character,5,5,Y,N,[0-9]{5}|99999,Left,,,,Y
+12,Screening & Assessment,3d,MYB,Month and year of birth,1,56,Numeric,6,6,Y,Y,MMCCYY,Right,,,,Y
 13,Screening & Assessment,3e,Latino,Hispanic or Latino origin,1,62,Numeric,1,1,N,Y,N/A,Right,,,LATINO,Y
 14,Screening & Assessment,3f,Race1,Race: first race,1,63,Numeric,1,1,N,Y,N/A,Right,,,RACE,Y
 15,Screening & Assessment,3g,Race2,Race: second race,1,64,Numeric,1,1,N,Y,N/A,Right,,,RACE,Y
 16,Screening & Assessment,3h,Education,Education (highest grade completed),1,65,Numeric,1,1,N,N,N/A,Right,,,EDUCATION,Y
 17,Screening & Assessment,3i,Language,What is the primary language spoken in your home?,1,66,Numeric,2,2,Y,Y,N/A,Right,,,LANGUAGE,Y
-18,Screening & Assessment,4a,SRHC,Do you have High Cholesterol?,2,68,Numeric,1,2,N,N,N/A,Right,,,CONDITION,"R-If(2c in [1, 2])"
+18,Screening & Assessment,4a,SRHC,Do you have high cholesterol?,2,68,Numeric,1,2,N,N,N/A,Right,,,CONDITION,"R-If(2c in [1, 2])"
 19,Screening & Assessment,4b,SRHB,Do you have hypertension (high blood pressure)?,2,70,Numeric,1,2,N,N,N/A,Right,,,CONDITION,"R-If(2c in [1, 2])"
 20,Screening & Assessment,4c,SRD,Do you have diabetes? (either Type 1 or Type 2),2,72,Numeric,1,2,N,N,N/A,Right,,,CONDITION,"R-If(2c in [1, 2])"
 21,Screening & Assessment,4d,SRHA,"Have you been diagnosed by a healthcare provider as having any of these conditions: coronary heart diesease/chest pain, heart attach, heart failure, stroke/transient ischemic attack (TIA), vascular disease, or congenital heart defects?",2,74,Numeric,1,2,N,N,N/A,Right,,,CONDITION,"R-If(2c in [1, 2])"
@@ -30,7 +30,7 @@
 29,Screening & Assessment,6b,BPFreq,How often do you measure your blood pressure at home or using other calibrated sources?,2,100,Numeric,1,2,N,N,N/A,Right,,,BPFREQ,Y
 30,Screening & Assessment,6c,BPSend,Do you regularly share blood pressure readings with a health care provider for feedback?,2,102,Numeric,1,2,N,N,N/A,Right,,,SHARE_BP,Y
 31,Screening & Assessment,7a,Fruit,How much fruit do you eat in an average day?,2,104,Numeric,2,4,Y,N,N/A,Right,1,50,CONSUMPTION,Y
-32,Screening & Assessment,7b,Vegetables,Hou many vegetables do you eat in an average day?,2,108,Numeric,2,4,Y,N,N/A,Right,1,15,CONSUMPTION,Y
+32,Screening & Assessment,7b,Vegetables,How many vegetables do you eat in an average day?,2,108,Numeric,2,4,Y,N,N/A,Right,1,15,CONSUMPTION,Y
 33,Screening & Assessment,7c,Fish,Do you eat two servings or more of fish weekly?,2,112,Numeric,1,2,N,N,N/A,Right,,,DIET,Y
 34,Screening & Assessment,7d,Grains,Do you eat 3 ounces or more of whole grains daily?,2,114,Numeric,1,2,N,N,N/A,Right,,,DIET,Y
 35,Screening & Assessment,7e,Sugar,Do you drink less than 36 ounces (450 calories) of beverages with added sugars weekly?,2,116,Numeric,1,2,N,N,N/A,Right,,,DIET,Y
@@ -57,21 +57,21 @@
 56,Screening & Assessment,14c,HDL,"HDL cholesterol (fasting or nonfasting), mg/dL",2,230,Numeric,3,6,Y,N,N/A,Right,7,196,MEASURE_BLOOD,"R-If(2c in [1, 2])"
 57,Screening & Assessment,14d,LDL,"LDL cholesterol (fasting only), mg/dL",2,236,Numeric,3,6,Y,N,N/A,Right,20,380,MEASURE_BLOOD,"R-If(2c in [1, 2])"
 58,Screening & Assessment,14e,Trigly,"Triglycerides (fasting only), mg/dL",2,242,Numeric,4,8,Y,N,N/A,Right,12,3000,MEASURE_BLOOD4,"R-If(2c in [1, 2])"
-59,Screening & Assessment,15a,BGDate,glucose /A1c measurement date,2,250,Numeric,8,16,Y,N,MMDDCCYY,Right,,,,*(p83)
-60,Screening & Assessment,15b,Glucose,"glucose (fasting only), mg/dL",2,266,Numeric,3,6,Y,N,N/A,Right,37,571,MEASURE_BLOOD,"R-If(2c in [1, 2])"
+59,Screening & Assessment,15a,BGDate,Glucose /A1c measurement date,2,250,Numeric,8,16,Y,N,MMDDCCYY,Right,,,,*(p83)
+60,Screening & Assessment,15b,Glucose,"Glucose (fasting only), mg/dL",2,266,Numeric,3,6,Y,N,N/A,Right,37,571,MEASURE_BLOOD,"R-If(2c in [1, 2])"
 61,Screening & Assessment,15c,A1C,A1C percentage,2,272,Numeric,4,8,Y,N,N/A,Right,2.8,16.2,MEASURE_BLOOD4,"R-If(2c in [1, 2])"
-62,Screening & Assessment,16a,BPAlert,"If average SBP > 180 or DBP > 110, what is the statu sof the workup?",2,280,Numeric,1,2,N,N,N/A,Right,,,WORKUP,"R-If(2c in [1, 2])"
+62,Screening & Assessment,16a,BPAlert,"If average SBP>180 or DBP>110, what is the status of the workup?",2,280,Numeric,1,2,N,N,N/A,Right,,,WORKUP,"R-If(2c in [1, 2])"
 63,Screening & Assessment,16b,BPDiDate,"If average SBP>180 or DBP>110, workup date",2,282,Numeric,8,16,Y,N,MMDDCCYY,Right,,,,*(p90)
-64,Screening & Assessment,16c,BGAlert,"if GLUCOSE <=50 or GLUCOSE >- 250, what is the status of the workup?",2,298,Numeric,1,2,N,N,N/A,Right,,,WORKUP,"R-If(2c in [1, 2])"
-65,Screening & Assessment,16d,BGDiDate,"if GLUCOSE <=50 or GLUCOSE >- 250,  workup exam date",2,300,Numeric,8,16,Y,N,MMDDCCYY,Right,,,,*(p94)
+64,Screening & Assessment,16c,BGAlert,"If GLUCOSE <=50 or GLUCOSE >= 250, what is the status of the workup?",2,298,Numeric,1,2,N,N,N/A,Right,,,WORKUP,"R-If(2c in [1, 2])"
+65,Screening & Assessment,16d,BGDiDate,"If GLUCOSE <=50 or GLUCOSE >= 250,  workup exam date",2,300,Numeric,8,16,Y,N,MMDDCCYY,Right,,,,*(p94)
 66,Risk Reduction Counseling,17a,RRCDate,Risk reduction counseling date,2,316,Numeric,8,16,Y,N,MMDDCCYY,Right,,,,"R-If(2c in [1, 2])"
 67,Risk Reduction Counseling,17b,RRCComplete,Risk reduction counseling completion date,2,332,Numeric,8,16,Y,N,MMDDCCYY,Right,,,RRCComplete_DATE,R-If(17a <> NULL)
 68,Risk Reduction Counseling,17c,RRCNut,Participant decided nutrition is a priority area,2,348,Numeric,1,2,N,N,N/A,Right,,,PRIORITY,R-If(17a <> NULL)
 69,Risk Reduction Counseling,17d,RRCPA,Participant decided physical activity is a priority area,2,350,Numeric,1,2,N,N,N/A,Right,,,PRIORITY,R-If(17a <> NULL)
 70,Risk Reduction Counseling,17e,RRCSmoke,Participant decided smoking cessation is a priority arean,2,352,Numeric,1,2,N,N,N/A,Right,,,PRIORITY,R-If(17a <> NULL)
-71,Risk Reduction Counseling,17f,RRCmedAdhere,participant decided medication adherence for hypertension (high blood pressure) is a priority area,2,354,Numeric,1,2,N,N,N/A,Right,,,PRIORITY,R-If(17a <> NULL)
+71,Risk Reduction Counseling,17f,RRCmedAdhere,Participant decided medication adherence for hypertension (high blood pressure) is a priority area,2,354,Numeric,1,2,N,N,N/A,Right,,,PRIORITY,R-If(17a <> NULL)
 72,Risk Reduction Counseling,18a,RTCDate,Readiness to change assessment date,2,356,Numeric,8,16,Y,N,MMDDCCYY,Right,,,,R-If(17a <> NULL)
-73,Risk Reduction Counseling,18b,RTC,Participant stage of changed,2,372,Numeric,1,2,N,N,N/A,Right,,,RTC,R-If(17a <> NULL)
+73,Risk Reduction Counseling,18b,RTC,Participant stage of change,2,372,Numeric,1,2,N,N,N/A,Right,,,RTC,R-If(17a <> NULL)
 74,Health Behavior Support Options,19a,RefDate,Lifestyle Program (LSP) / Health Coaching (HC) referral date,2,374,Numeric,8,16,Y,N,MMDDCCYY,Right,,,,N
 75,Health Behavior Support Options,20a,LSPHCRec,Number of Lifestyle Program (LSP) / Health Coaching  (HC) sessions received by the participant,1,390,Numeric,2,2,Y,N,N/A,Right,,,,R-if(19a <> NULL)
 76,Health Behavior Support Options,20b,Intervention,Date of Lifestyle Program (LSP) / Health Coaching (HC) session,16,392,Numeric,8,128,Y,N,MMDDCCYY,Right,,,,N
@@ -81,5 +81,5 @@
 80,Health Behavior Support Options,20f,Setting,Setting of Lifestyle Program (LSP) / Health Coaching (HC) session,16,744,Numeric,1,16,N,N,N/A,Right,,,SETTING,R-if(20b[i] <> NULL)
 81,Health Behavior Support Options,20g,LSPHCComp,Completion of Lifestyle Program (LSP) / Health Coaching (HC),16,760,Numeric,1,16,N,N,N/A,Right,,,LSPHCComp,R-if(20b[i] <> NULL)
 82,Health Behavior Support Options,21a,TobResDate,Date of referral to Tobacco Cessation Resource,3,776,Numeric,8,24,Y,N,MMDDCCYY,Right,,,,R-if(17e <> NULL)
-83,Health Behavior Support Options,21b,TobResType,Type o fTobacco Cesation Resource,3,800,Numeric,1,3,N,N,N/A,Right,,,TOBRESTYPE,R-if(21a <> null)
+83,Health Behavior Support Options,21b,TobResType,Type of Tobacco Cesation Resource,3,800,Numeric,1,3,N,N,N/A,Right,,,TOBRESTYPE,R-if(21a <> null)
 84,Health Behavior Support Options,21c,TResComp,Tobacco Cessation activity completed,3,803,Numeric,1,3,N,N,N/A,Right,,,TRESCOMP,R-if(21b <> NULL)
