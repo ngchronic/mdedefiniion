@@ -3,18 +3,17 @@ version: '3.1'
 services:
 
   mdedef:
-    #build: .
-    image: esurveillance/mdedefinitions
+    image: esurveillance/mdedefinition
     restart: always
     container_name: mdedefinition
     ports:
       - 10000:10000
-    links:
-      - mongodb_mde
     depends_on:
       - mongodb_mde
     networks:
       - esurv1
+    env_file:
+    - ./.env
 
   mongodb_mde:
       image: mongo:latest
@@ -25,8 +24,8 @@ services:
       volumes:
         - ./data/mde_db:/data/db
       ports:
-          - 27018:27017
-      command: mongod --smallfiles --logpath=/dev/null # --quiet
+          - 27018:${MONGO_MDE_PORT}
+      command: mongod --port ${MONGO_MDE_PORT} --smallfiles --logpath=/dev/null # --quiet
       networks:
         - esurv1
 
