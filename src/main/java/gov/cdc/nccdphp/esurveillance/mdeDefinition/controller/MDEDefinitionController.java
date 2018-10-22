@@ -20,6 +20,7 @@ import java.util.Optional;
  * @Created - 7/23/18
  * @Author Marcelo Caldas mcq1@cdc.gov
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/mde/")
 @ApiVersion({1})
