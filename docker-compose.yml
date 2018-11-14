@@ -18,13 +18,15 @@ services:
   mongodb_mde:
       image: mongo:latest
       container_name: "mongodb_mde"
+      env_file:
+        - ./.env
       environment:
         - MONGO_DATA_DIR=/data/mde_db
         - MONGO_LOG_DIR=/dev/null
       volumes:
         - ./data/mde_db:/data/db
       ports:
-          - 27018:${MONGO_MDE_PORT}
+          - ${MONGO_MDE_PORT}:${MONGO_MDE_PORT}
       command: mongod --port ${MONGO_MDE_PORT} --smallfiles --logpath=/dev/null # --quiet
       networks:
         - esurv1
