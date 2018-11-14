@@ -12,6 +12,10 @@ public class Field implements Comparable {
     private String fieldItem;
     private String[] values;
 
+    public Field() {
+
+    }
+    
     public Field(int fieldNumber, String fieldItem) {
         this.fieldNumber = fieldNumber;
         this.fieldItem = fieldItem;

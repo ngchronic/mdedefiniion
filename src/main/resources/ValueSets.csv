@@ -6,7 +6,7 @@ LATINO,1^Yes,2^No,7^Unknown,9^No answer recorded
 RACE,1^White,2^Black of African American,3^Asian,4^Native Hawaiian or Other Pacific islander,5^American Indian or Alaska Native,7^Unknown,9^No answer recorded
 EDUCATION,1^<9th grade,2^Some high school,3^High school graduate or equivalent,4^Some college or higher,7^don't know/Not Sure,8^Don't want to answer,9^No answer recorded
 LANGUAGE,01^English,02^Spanish,03^Arabic,04^Chinese,05^French,06^Italian,07^Japanese,08^Korean,09^Polish,10^Russian,11^Tagalog,12^Vietnamese,13^Creole,14^Portuguese,15^Hmong,16^Other Language,88^Don't want to answer,99^No answer recorded
-CONDITIION,1^Yes,2^No,7^Don't Know/Not sure,8^Don't want to answer,9^No answer recorded
+CONDITION,1^Yes,2^No,7^Don't Know/Not sure,8^Don't want to answer,9^No answer recorded
 MEDS,1^Yes,2^No,3^No - Could not obtain medication,5^Not Applicable,7^Don't know/Not Sure,8^Don't want to answer,9^No answer recorded
 MEDS_DAYS,00^None,55^Not Applicable,77^Don't know/Not sure,88^Don't want to answer,99^No answer recorded
 BPHOME,1^Yes,2^No - Was never told to measure her blood pressure,3^No - Doesn't know how to measure her blood pressure,4^No - Doesn't have equipment to measure her blood pressure,5^Not Applicable,7^Don't know/Not sure/Other,8^Don't want to answer,9^No answer recorded

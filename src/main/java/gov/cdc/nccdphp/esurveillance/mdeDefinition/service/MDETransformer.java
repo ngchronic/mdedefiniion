@@ -33,11 +33,13 @@ public class MDETransformer {
         try (Scanner scanner = new Scanner(content)) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                Row row = new Row(rowNumber++);
-                row.setFields(
-                        def.getFields().entrySet().stream().map(e -> populateField(line, e.getValue())).collect(Collectors.toList())
-                );
-                file.addRow(row);
+                if (line.trim().length() > 0) {
+                    Row row = new Row(rowNumber++);
+                    row.setFields(
+                            def.getFields().entrySet().stream().map(e -> populateField(line, e.getValue())).collect(Collectors.toList())
+                    );
+                    file.addRow(row);
+                }
             }
         }
         return file;
