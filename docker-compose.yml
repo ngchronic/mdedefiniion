@@ -26,7 +26,7 @@ services:
       volumes:
         - ./data/mde_db:/data/db
       ports:
-          - ${MONGO_MDE_PORT}:${MONGO_MDE_PORT}
+        - ${MONGO_MDE_PORT}:${MONGO_MDE_PORT}
       command: mongod --port ${MONGO_MDE_PORT} --smallfiles --logpath=/dev/null # --quiet
       networks:
         - esurv1
