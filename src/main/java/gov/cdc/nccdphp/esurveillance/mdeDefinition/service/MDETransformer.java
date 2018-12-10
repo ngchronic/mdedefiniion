@@ -6,10 +6,7 @@ import gov.cdc.nccdphp.esurveillance.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -50,7 +47,10 @@ public class MDETransformer {
         if (line.length() >= fieldDef.getPosition()) {
             String values = line.substring(fieldDef.getPosition() - 1, Math.min(fieldDef.getPosition() - 1 + fieldDef.getItemLength() * fieldDef.getRounds(), line.length()));
             //This line divides the values equaly by item length.
-            field.setValues(values.split("(?<=\\G.{" + fieldDef.getItemLength() + "})"));
+            String[] splitted = values.split("(?<=\\G.{" + fieldDef.getItemLength() + "})");
+
+            field.setValues( Arrays.stream(splitted).map(v -> StringUtils.trim(v.trim(), "\\.")).toArray(String[]::new));
+
         }
         return field;
     }
