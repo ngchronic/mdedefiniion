@@ -135,7 +135,7 @@ public abstract class StringUtils {
 	 * Makes a string grow up to a number of Characters.
 	 *
 	 * @param txt The original String to be modified
-	 * @param len The final size of the String.
+	 * @param len Thed final size of the String.
 	 * @param LR  Flag indicating where to add the extra spaces.
 	 * @return The modified string with a specified size.
 	 * @param c a char.
