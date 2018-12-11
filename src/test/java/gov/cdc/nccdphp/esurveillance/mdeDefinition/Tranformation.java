@@ -2,12 +2,14 @@ package gov.cdc.nccdphp.esurveillance.mdeDefinition;
 
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.ReadContext;
+import gov.cdc.nccdphp.esurveillance.utils.StringUtils;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @Created - 11/11/18
@@ -15,19 +17,30 @@ import java.util.Map;
  */
 public class Tranformation {
 
-        @Test
-        public void testConversion() {
+    @Test
+    public void testConversion() {
 
-            ReadContext ctx = JsonPath.parse(json);
+        ReadContext ctx = JsonPath.parse(json);
 
-            List<String> fields = ctx.read("$.fields[*].fieldItem");
-            Map<String, String[]> newDoc = new HashMap<>();
-            for (String field: fields) {
-                newDoc.put(field, ctx.read("$.fields[?(@.fieldItem == '" + field + "')].values"));
-            }
-            System.out.println(Arrays.asList(newDoc));
+        List<String> fields = ctx.read("$.fields[*].fieldItem");
+        Map<String, String[]> newDoc = new HashMap<>();
+        for (String field: fields) {
+            newDoc.put(field, ctx.read("$.fields[?(@.fieldItem == '" + field + "')].values"));
         }
+        System.out.println(Arrays.asList(newDoc));
+    }
 
+
+    @Test
+    public void testParsingFieldValuesWithDots() {
+        String example="1231.20.3...  4 456  70";
+
+        String[] splitted = example.split("(?<=\\G.{" + 3 + "})");
+        String[] newArray  = Arrays.stream(splitted).map(v -> StringUtils.trim(v.trim(), "\\.")).toArray(String[]::new);
+
+        Arrays.stream(newArray).forEach(System.out::println);
+
+    }
 
         String json = "{\n" +
                 "            \"rowNumber\": 1,\n" +

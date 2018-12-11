@@ -255,6 +255,12 @@ public abstract class StringUtils {
 		}
 		return str;
 	}
+
+	public static String trim(String str, String s) {
+		String result = str.replaceAll("^" + s + "+", "");
+		result = result.replaceAll(s + "+$", "");
+		return result;
+	}
 	/**
 	 * <p>isSame.</p>
 	 *
