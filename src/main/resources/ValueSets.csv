@@ -1,6 +1,6 @@
 ﻿Code,Values…
 STATE_FIPS_CODE,01^Alabama (AL),06^Califormia (CA),08^Colorado (CO),09^Connecticut (CT),17^Illinois (IL),18^Indiana (IN),19^Iowa (IA),26^Michigan (MI),29^Missouri (MO),31^Nebraska (NE),37^North Carolina (NC),41^Oregon (OR),42^Pennsylvania (PA),44^Rhode island (RI),45^South Carolina (SC),49^Utah (UT),50^Vermont (VT),54^West Virginia (WV),55^Wisconsin (WI),85^Southeast Alaska Regional health Consortium (SEARHC),92^Southcentral Foundation (SCF)
-TIME_PERF,1^6-month period 1 (7/01/13 - 12/31/13),2^6-month period 2 (01/01/14 - 06/30/14),3^6-month period 1 (07/01/14 - 12/31/14),4^6-month period 2 (01/01/15 - 06/30/15),5^6-month period 1 (07/01/15 - 12/31/15),6^6-month period 2 (01/01/16 - 06/30/16),7^6-month period 1 (07/01/16 - 12/31/16),8^6-month period 2 (01/01/17 - 06/30/17)
+TIME_PERF,1^6-month period 1 (7/01/13 - 12/31/13),2^6-month period 2 (01/01/14 - 06/30/14),3^6-month period 1 (07/01/14 - 12/31/14),4^6-month period 2 (01/01/15 - 06/30/15),5^6-month period 1 (07/01/15 - 12/31/15),6^6-month period 2 (01/01/16 - 06/30/16),7^6-month period 1 (07/01/16 - 12/31/16),8^6-month period 2 (01/01/17 - 06/30/17),9^6-month period 1 (07/01/2017 - 12/31/2017),0^6-month period 1 (01/01/2018 - 06/30/2018)
 VISIT_TYPE,1^Screening,2^Rescreening,3^Follow-up assessment - LSP/HC complete,4^Follow-up assessment - LSP/HC incomplete,9^No answer recorded
 LATINO,1^Yes,2^No,7^Unknown,9^No answer recorded
 RACE,1^White,2^Black of African American,3^Asian,4^Native Hawaiian or Other Pacific islander,5^American Indian or Alaska Native,7^Unknown,9^No answer recorded
@@ -14,7 +14,7 @@ BPFREQ,1^Multiple times per day,2^Daily,3^A few times per week,4^Weekly,5^Monthl
 SHARE_BP,1^Yes,2^No,5^Not Applicable,7^Don't know/Not sure/Other,8^Don't want to answer,9^No answer recorded
 CONSUMPTION,00^None,88^Don't want to answer,99^No answer recorded
 DIET,1^Yes,2^No,8^Don't want to answer,9^No answer recorded
-EXERCISE,000^None,888^Don't want to answer,999^No answer recorded
+EXERCISE,000^None,888^Don't want to answer,999^No answer recordeddocker-compose
 SMOKER,1^Current Smoker,2^Quit (1-12 months ago),3^Quit (More than 12 months ago),4^Never Smoked,8^Don't want to answer,9^No answer recorded
 SEC_HAND_SMOKER,66^Less than one,00^None,88^Don't want to answer,99^No answer recorded
 QOL,77^Don't know/Not sure,88^Don't want to answer,99^No answer recorded
