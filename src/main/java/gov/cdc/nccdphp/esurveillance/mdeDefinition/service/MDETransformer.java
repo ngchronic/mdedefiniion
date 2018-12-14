@@ -76,7 +76,8 @@ public class MDETransformer {
             if (field.getValues() != null && field.getValues().length > i) {
                 aValue = field.getValues()[i];
             }
-            String paddedValue = StringUtils.padGrow(aValue, fieldDef.isLeadingZeroes()? PAD_ZERO : PAD_SPACE, fieldDef.getItemLength(), fieldDef.getJustification().equals(JUSTIFY_RIGHT)?StringUtils.PAD_LEFT:StringUtils.PAD_RIGHT);
+            //String paddedValue = StringUtils.padGrow(aValue, fieldDef.isLeadingZeroes()? PAD_ZERO : PAD_SPACE, fieldDef.getItemLength(), fieldDef.getJustification().equals(JUSTIFY_RIGHT)?StringUtils.PAD_LEFT:StringUtils.PAD_RIGHT);
+            String paddedValue = StringUtils.padGrow(aValue, PAD_SPACE, fieldDef.getItemLength(), fieldDef.getJustification().equals(JUSTIFY_RIGHT)?StringUtils.PAD_LEFT:StringUtils.PAD_RIGHT);
             //Truncate value in case is too big (keep file safe! loose data!)
             value.append(paddedValue, 0, Math.min(paddedValue.length(), fieldDef.getItemLength()));
 
